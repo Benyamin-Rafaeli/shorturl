@@ -1,0 +1,9 @@
+package.json
+package-lock.json
+yarn.lock
+config
+node_modlues
+README.md
+Jenkinsfile
+Dockerfile
+Cypress.json

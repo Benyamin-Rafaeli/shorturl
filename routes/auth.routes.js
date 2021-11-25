@@ -1,0 +1,18 @@
+const { Router } = require('express');
+const router = Router();
+
+router.post('/register', async (req, res) => {
+  try {
+  } catch (e) {
+    res.status(500).json({ message: 'vse huovo' });
+  }
+});
+
+router.post('/login', async (req, res) => {
+  try {
+  } catch (e) {}
+});
+
+// router.post('/register', async (req, res) => {})
+
+module.exports = router;
