@@ -1,0 +1,4 @@
+{
+  "port": 5001,
+  "mongoURI": "mongodb+srv://scrap123:scrap123@devconnector.43fx1.mongodb.net/shortUrl?retryWrites=true&w=majority"
+}
