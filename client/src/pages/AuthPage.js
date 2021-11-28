@@ -1,15 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useHttp } from '../hooks/http.hooks';
+import { useMessage } from '../hooks/message.hook';
 
 export const AuthPage = () => {
+  const message = useMessage();
+  const { loading, request, error, clearError } = useHttp();
   const [form, setForm] = useState({
     email: '',
     password: '',
   });
+  useEffect(() => {
+    console.log('Error:', error);
+    message(error);
+    // clearError();
+  }, [error, message]); //  clearError
+
+  const registerHandler = async () => {
+    try {
+      const data = await request('/api/auth/register', 'POST', { ...form });
+      console.log('Data', data);
+    } catch (e) {}
+  };
 
   const changeHandler = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
-
 
   return (
     <div className="row">
@@ -47,10 +62,18 @@ export const AuthPage = () => {
             </div>
           </div>
           <div className="card-action">
-            <button className="btn yellow darken-4" style={{ marginRight: 10 }}>
+            <button
+              className="btn yellow darken-4"
+              style={{ marginRight: 10 }}
+              disabled={loading}
+            >
               Zahodi
             </button>
-            <button className="btn green lighten-1 black-text">
+            <button
+              className="btn green lighten-1 black-text"
+              onClick={registerHandler}
+              disabled={loading}
+            >
               Registrazia
             </button>
           </div>

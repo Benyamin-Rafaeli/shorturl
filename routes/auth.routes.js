@@ -10,10 +10,11 @@ router.post(
   '/register',
   [
     check('email', 'huioviy email').isEmail(),
-    check('password', 'huioviy parole password').isLength({ min: 6 }),
+    check('password', 'huioviy parole minimum 20 cm').isLength({ min: 6 }),
   ],
   async (req, res) => {
     try {
+      // console.log('Body: ', req.body);
       const errors = validationResult(reg);
       if (!errors.isEmpty()) {
         return res.status(400).json({
