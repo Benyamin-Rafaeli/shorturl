@@ -23,6 +23,13 @@ export const AuthPage = () => {
     } catch (e) {}
   };
 
+  const loginHandler = async () => {
+    try {
+      const data = await request('/api/auth/login', 'POST', { ...form });
+      console.log('Data', data);
+    } catch (e) {}
+  };
+
   const changeHandler = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
@@ -67,6 +74,7 @@ export const AuthPage = () => {
               className="btn yellow darken-4"
               style={{ marginRight: 10 }}
               disabled={loading}
+              onClick={loginHandler}
             >
               Zahodi
             </button>
