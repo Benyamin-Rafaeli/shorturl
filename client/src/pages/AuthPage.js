@@ -4,16 +4,17 @@ import { useMessage } from '../hooks/message.hook';
 
 export const AuthPage = () => {
   const message = useMessage();
+
   const { loading, request, error, clearError } = useHttp();
+
   const [form, setForm] = useState({
     email: '',
     password: '',
   });
   useEffect(() => {
-    console.log('Error:', error);
     message(error);
-    // clearError();
-  }, [error, message]); //  clearError
+    clearError();
+  }, [error, message, clearError]);
 
   const registerHandler = async () => {
     try {
