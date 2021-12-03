@@ -6,7 +6,7 @@ export const LinkCard = ({ link }) => {
       <h2>Ssilka</h2>
       <p>
         Vasha ssilka:{' '}
-        <a href={link.id} target="_blank" rel="noopener noreferrer">
+        <a href={link.to} target="_blank" rel="noopener noreferrer">
           {link.to}
         </a>
       </p>
