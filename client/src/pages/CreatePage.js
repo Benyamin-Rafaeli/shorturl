@@ -1,8 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useHttp } from '../hooks/http.hooks';
+import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 
 export const CreatePage = () => {
+  const history = useHistory();
   const auth = useContext(AuthContext);
   const { request } = useHttp();
   const [link, setLink] = useState('');
@@ -22,6 +24,7 @@ export const CreatePage = () => {
             Authorization: `Bearer ${auth.token}`,
           }
         );
+        history.push(`/detail/${data.link._id}`);
         console.log(data);
       } catch (e) {}
     }
