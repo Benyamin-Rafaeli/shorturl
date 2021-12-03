@@ -12,6 +12,7 @@ router.post('/generate', auth, async (req, res) => {
     const code = shortid.generate();
     const existing = await Link.findOne({ from });
     if (existing) {
+      console.log('EXISTS:', JSON.stringify(existing));
       return res.json({ link: existing });
     }
     const to = baseUrl + '/t/' + code;
@@ -35,6 +36,7 @@ router.get('/', auth, async (req, res) => {
 router.get('/:id', auth, async (req, res) => {
   try {
     const link = await Link.findById(req.params.id);
+    console.log('LINK ID: ', JSON.stringify(link));
     res.json(link);
   } catch (e) {
     res.status(500).json({ message: 'vse huovo' });

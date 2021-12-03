@@ -7,14 +7,12 @@ export const LinkCard = ({ link }) => {
       <p>
         Vasha ssilka:{' '}
         <a href={link.id} target="_blank" rel="noopener noreferrer">
-          {' '}
           {link.to}
         </a>
       </p>
       <p>
         Vasha otkuda:{' '}
         <a href={link.from} target="_blank" rel="noopener noreferrer">
-          {' '}
           {link.from}
         </a>
       </p>
