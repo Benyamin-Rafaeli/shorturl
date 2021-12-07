@@ -23,6 +23,7 @@
     "jsonwebtoken": "^8.5.1",
     "materialize-css": "^1.0.0-rc.2",
     "mongoose": "^6.0.13",
+    "pm2": "^5.1.2",
     "prettier": "^2.4.1",
     "shortid": "^2.2.16"
   },

@@ -1,6 +1,6 @@
 {
-  "port": 5001,
+  "port": 80,
   "jwtSecret": "azary ahuenniy pazan",
   "mongoURI": "mongodb+srv://scrap123:scrap123@devconnector.43fx1.mongodb.net/shortUrl?retryWrites=true&w=majority",
-  "baseUrl": "http://localhost:5001"
+  "baseUrl": "http://lawisrael.info/"
 }
