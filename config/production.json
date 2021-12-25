@@ -2,5 +2,8 @@
   "port": 80,
   "jwtSecret": "azary ahuenniy pazan",
   "mongoURI": "mongodb+srv://scrap123:scrap123@devconnector.43fx1.mongodb.net/shortUrl?retryWrites=true&w=majority",
-  "baseUrl": "http://lawisrael.info/"
+  "baseUrl": "http://lawisrael.info/",
+  "env": {
+    "knesset": "https://main.knesset.gov.il"
+  }
 }
