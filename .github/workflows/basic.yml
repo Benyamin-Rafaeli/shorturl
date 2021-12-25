@@ -1,34 +1,12 @@
-name: example-basic
+name: End-to-end tests
 on: [push]
 jobs:
-  basic-ubuntu-20:
+  cypress-run:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Cypress tests
-        uses: ./
-        with:
-          working-directory: examples/basic
-          build: npx cypress info
-
-  # skips the binary installation
-  # shows that the job should not fail
-  # https://github.com/cypress-io/github-action/issues/327
-  basic-without-binary-install:
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Cypress tests
-        uses: ./
-        with:
-          working-directory: examples/basic
-          # since we do not install Cypress
-          # we should not attempt to run tests
-          runTests: false
-        env:
-          # skip the binary install
-          CYPRESS_INSTALL_BINARY: 0
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
